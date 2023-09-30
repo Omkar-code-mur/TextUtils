@@ -4,9 +4,8 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./Componants/Navbar";
 import TextForm from "./Componants/TextForm";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from "./Componants/About";
-import Alert from "./Componants/Alert";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -52,7 +51,6 @@ function App() {
               toggleMode={toggleMode}
               capitalize={capitalize}
             />
-            
         <Routes>
         
           <Route
@@ -60,7 +58,6 @@ function App() {
             element={
               <>
                 <div className='container'>
-                <Alert alert="this is alert"/>
                   <TextForm
                     heading='Enter The text to analyse'
                     mode={mode}

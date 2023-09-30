@@ -35,11 +35,11 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className='container my-3' data-bs-theme={props.mode}>
+      <div className='container my-3 d-inline' data-bs-theme={props.mode}>
         <h2 className=' my-3' data-bs-theme={props.mode}>
           {props.heading}
         </h2>
-        <div className='my-3'>
+        <div className='my-3 '>
           <textarea
             className='form-control'
             id='myBox'
@@ -50,21 +50,21 @@ export default function TextForm(props) {
             placeholder={text}></textarea>
         </div>
         <button
-          className='btn btn-primary mx-1'
+          className='btn btn-primary mx-1 my-1'
           data-bs-theme={props.mode}
           onClick={handleUpClick}>
           Convert to Upper Case
         </button>
-        <button className='btn btn-primary mx-1' onClick={handleLoClick}>
+        <button className='btn btn-primary mx-1 my-1 center d-inline-flex ' onClick={handleLoClick}>
           Convert to Lower Case
         </button>
-        <button className='btn btn-primary mx-1' onClick={handleCopy}>
+        <button className='btn btn-primary mx-1 my-1 center d-inline-flex ' onClick={handleCopy}>
           Copy Text
         </button>
-        <button className='btn btn-primary mx-1' onClick={handleExtraSpaces}>
+        <button className='btn btn-primary mx-1 my-1 center d-inline-flex ' onClick={handleExtraSpaces}>
           Remove Extra Spaces
         </button>
-        <button className='btn btn-secondary mx-1' onClick={handleClearClick}>
+        <button className='btn btn-secondary mx-1 my-1 center d-inline-flex ' onClick={handleClearClick}>
           Cear Text
         </button>
       </div>

@@ -6,16 +6,26 @@ export default function TextForm(props) {
   const handleUpClick = (e) => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("text Converted to upper case","success")
   };
   const handleCopy = (e) => {
     navigator.clipboard.writeText(text);
+    props.showAlert("text copied","success")
+  };
+  const handleExtraSpaces = (e) => {
+    let newText = text
+    newText = newText.split(/[  ]+/ )
+    setText(newText.join(" "))
+    props.showAlert("Extra spaces removed","success")
   };
   const handleClearClick = (e) => {
     setText("");
+    props.showAlert("text cleared","success")
   };
   const handleLoClick = (e) => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("text converted to lower case","success")
   };
   const handleOnChange = (e) => {
     setText(e.target.value);
@@ -50,6 +60,9 @@ export default function TextForm(props) {
         </button>
         <button className='btn btn-primary mx-1' onClick={handleCopy}>
           Copy Text
+        </button>
+        <button className='btn btn-primary mx-1' onClick={handleExtraSpaces}>
+          Remove Extra Spaces
         </button>
         <button className='btn btn-secondary mx-1' onClick={handleClearClick}>
           Cear Text

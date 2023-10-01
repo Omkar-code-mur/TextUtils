@@ -45,7 +45,6 @@ export default function TextForm(props) {
             id='myBox'
             rows='8'
             onChange={handleOnChange}
-            onClick={() => setText("")}
             value={text}
             placeholder={text}></textarea>
         </div>

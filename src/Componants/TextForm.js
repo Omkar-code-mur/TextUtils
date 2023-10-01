@@ -3,16 +3,26 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+  const emptyCheck = ()=>{
+    if(text === ""){
+      props.showAlert("Please Enter Some Text to modify","warning")
+      return true
+    }
+  }
   const handleUpClick = (e) => {
+    if(emptyCheck()) return
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("text Converted to upper case","success")
   };
   const handleCopy = (e) => {
+    if (emptyCheck()) return
     navigator.clipboard.writeText(text);
     props.showAlert("text copied","success")
   };
   const handleExtraSpaces = (e) => {
+    if(emptyCheck()) return
     let newText = text
     newText = newText.split(/[  ]+/ )
     setText(newText.join(" "))
@@ -22,7 +32,32 @@ export default function TextForm(props) {
     setText("");
     props.showAlert("text cleared","success")
   };
+  const check = (word)=>{
+    return word !== ""
+  } 
+  const findWordCount = (sentance) => {
+    if(sentance === null || sentance === ""){
+      return 0
+    }else{
+      return text.split(" ").filter(check).length
+    } 
+  };
+  const findCharacters = (sentance) => {
+    if(sentance === null || sentance === ""){
+      return 0
+    }else{
+      return text.split(" ").filter(check).join("").length
+    } 
+  };
+  const findSpaces = (sentance) => {
+    if(sentance === null || sentance === ""){
+      return 0
+    }else{
+      return text.split(" ").length-1
+    } 
+  };
   const handleLoClick = (e) => {
+    if(emptyCheck()) return
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("text converted to lower case","success")
@@ -31,7 +66,7 @@ export default function TextForm(props) {
     setText(e.target.value);
   };
 
-  let [text, setText] = useState("Enter Text Here!");
+  let [text, setText] = useState("");
 
   return (
     <>
@@ -46,7 +81,9 @@ export default function TextForm(props) {
             rows='8'
             onChange={handleOnChange}
             value={text}
-            placeholder={text}></textarea>
+            placeholder={"Write Text Here!"}>
+
+            </textarea>
         </div>
         <button
           className='btn btn-primary mx-1 my-1'
@@ -64,13 +101,14 @@ export default function TextForm(props) {
           Remove Extra Spaces
         </button>
         <button className='btn btn-secondary mx-1 my-1 center d-inline-flex ' onClick={handleClearClick}>
-          Cear Text
+          Clear Text
         </button>
       </div>
       <div className='container my-3' data-bs-theme={props.mode}>
         <h1>Your Text Summary</h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          
+           {findWordCount(text)} words {findCharacters(text)} characters {findSpaces(text)} spaces
         </p>
         <h3>Preview</h3>
         <p>{text}</p>

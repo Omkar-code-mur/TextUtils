@@ -2,8 +2,8 @@
 
 import React from "react";
 
-export default function About({ mode,emoji, toggleMode, capitalize }) {
-//   
+export default function About({ mode, emoji, toggleMode, capitalize }) {
+  //
   return (
     <div className='container' data-bs-theme={mode}>
       <h2 className='my-3'>About</h2>
@@ -17,7 +17,7 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
               data-bs-target='#collapseOne'
               aria-expanded='true'
               aria-controls='collapseOne'>
-              Accordion Item #1 learn react
+              Analyze Your Text
             </button>
           </h2>
           <div
@@ -25,14 +25,9 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
             className='accordion-collapse collapse show'
             data-bs-parent='#accordionExample'>
             <div className='accordion-body'>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This site will help you to analyse, modify, and beautifly your
+              text. We provide a lot of functionalities like convert to upper
+              case , convert to lower case , remove extra spaces and much more.
             </div>
           </div>
         </div>
@@ -45,7 +40,7 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
               data-bs-target='#collapseTwo'
               aria-expanded='false'
               aria-controls='collapseTwo'>
-              Accordion Item #2
+              Free to Use
             </button>
           </h2>
           <div
@@ -53,14 +48,8 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
             className='accordion-collapse collapse'
             data-bs-parent='#accordionExample'>
             <div className='accordion-body'>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This is free to use and share , much more functionalities are been
+              going to add as needed.
             </div>
           </div>
         </div>
@@ -73,7 +62,7 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
               data-bs-target='#collapseThree'
               aria-expanded='false'
               aria-controls='collapseThree'>
-              Accordion Item #3
+              Browser Compatibility
             </button>
           </h2>
           <div
@@ -81,14 +70,7 @@ export default function About({ mode,emoji, toggleMode, capitalize }) {
             className='accordion-collapse collapse'
             data-bs-parent='#accordionExample'>
             <div className='accordion-body'>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This is compatible with most of the browsers and also usable in smartphones 
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ function App() {
       setMode("dark");
       setEmoji("☀️");
       document.body.classList.add("bg-dark", "text-light");
-      document.body.classList.remove( "text-dark");
+      document.body.classList.remove( "text-dark","bg-light");
       document.querySelector(".toggle").classList.toggle("btn-secondary");
       document.querySelector(".toggle").classList.toggle("btn-light");
     } else {
@@ -43,7 +43,7 @@ function App() {
       document.querySelector(".toggle").classList.toggle("btn-light");
       setEmoji("🌙");
       document.body.classList.remove("bg-dark", "text-light");
-      document.body.classList.add( "text-dark");
+      document.body.classList.add( "text-dark","bg-light");
     }
   };
   const capitalize = (data) => {
@@ -71,7 +71,7 @@ function App() {
         <Routes>
         
           <Route
-            path='/'
+            exact path='/'
             element={
               <>
                 <div className='container'>
@@ -81,6 +81,7 @@ function App() {
                     emoji={emoji}
                     toggleMode={toggleMode}
                     showAlert={showAlert}
+                    capitalize = {capitalize}
                   />
                 </div>
               </>
@@ -88,7 +89,7 @@ function App() {
           />
 
           <Route
-            path='/about'
+            exact path='/about'
             element={
               <About mode={mode} emoji={emoji} toggleMode={toggleMode} capitalize={capitalize} />
             }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Navbar({ mode, title, emoji, toggleMode, capitalize }) {
+export default function Navbar({ mode, emoji, toggleMode, capitalize }) {
   return (
     <div>
       <nav
@@ -37,6 +37,7 @@ export default function Navbar({ mode, title, emoji, toggleMode, capitalize }) {
                 onClick={toggleMode}>
                 {emoji} {capitalize(mode)} mode
               </button>
+              
             </form>
           </div>
         </div>

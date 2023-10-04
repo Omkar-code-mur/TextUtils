@@ -3,9 +3,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-
-
-  let a = []
+  let a = [];
   // This function is used to check is textbox is not empty
   const emptyCheck = () => {
     if (text === "") {
@@ -118,7 +116,7 @@ export default function TextForm(props) {
     if (sentance === null || sentance === "") {
       return 0;
     } else {
-      return text.split(/\s+/ ).filter((word)=> word !== "").length;
+      return text.split(/\s+/).filter((word) => word !== "").length;
     }
   };
 
@@ -127,7 +125,10 @@ export default function TextForm(props) {
     if (sentance === null || sentance === "") {
       return 0;
     } else {
-      return text.split(" ").filter((word)=> word !== "").join("").length;
+      return text
+        .split(" ")
+        .filter((word) => word !== "")
+        .join("").length;
     }
   };
 
@@ -151,11 +152,28 @@ export default function TextForm(props) {
     setText(e.target.value);
   };
 
-  let [text, setText] = useState("",(text) =>{
-    a.push(text)
-    console.log(a)
-    return text
-  } );
+  // this function is used to convert janilla javascript bootstrap to react compatable bootstrap
+  const convertToReactCom = (e) => {
+    if (emptyCheck()) return;
+    let newText = text;
+    newText = newText.split(" ").map((word)=>{
+      if(word.includes("class=")){
+        return word.replace("class=","className=")
+      }else if(word.includes("href=\"#\"")){
+        return word.replace("href=\"#\"","href=\"/\"")
+      }else if(word.includes("for=")){
+        return word.replace("for=","htmlFor")
+      }
+      return word
+    })
+    setText(newText.join(" "));
+    props.showAlert("Code is now React Compatible", "success");
+  };
+  let [text, setText] = useState("", (text) => {
+    a.push(text);
+    console.log(a);
+    return text;
+  });
 
   return (
     <>
@@ -206,6 +224,23 @@ export default function TextForm(props) {
                 className='btn btn-primary mx-1 my-1 center d-inline-flex dropdown-item'
                 onClick={funnyCase}>
                 Convert to fUnny cAsE
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div className='btn-group'>
+          <button
+            className='btn btn-primary mx-1 my-1 dropdown-toggle '
+            data-bs-toggle='dropdown'
+            aria-expanded='false'>
+            Developer Convertions
+          </button>
+          <ul className='dropdown-menu'>
+            <li>
+              <button
+                className='btn btn-primary mx-1 my-1 dropdown-item '
+                onClick={convertToReactCom}>
+                Convert to React Compatable Bootstrap
               </button>
             </li>
           </ul>

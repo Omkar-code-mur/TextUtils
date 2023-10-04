@@ -61,8 +61,8 @@ export default function TextForm(props) {
     props.showAlert("text Capitalized", "success");
   };
 
-  // This function is used to find number of sentances
-  const findSentances = (text) => {
+  // This function is used to find number of sentences
+  const findSentences = (text) => {
     let newText = text;
     let puncs = [".", "?", "!"];
     let count = -3;
@@ -275,7 +275,7 @@ export default function TextForm(props) {
       <div className='container my-3' data-bs-theme={props.mode}>
         <h1 className='display-5'>Your Text Summary</h1>
         <p className='display-6'>
-          <strong>{findSentances(text)}</strong> sentances{" "}
+          <strong>{findSentences(text)}</strong> sentences{" "}
           <strong>{findWordCount(text)}</strong> words{" "}
           <strong>{findCharacters(text)}</strong> characters{" "}
           <strong>{findSpaces(text)}</strong> spaces
